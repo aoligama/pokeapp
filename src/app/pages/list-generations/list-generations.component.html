@@ -4,8 +4,8 @@
       <h5>Generations</h5>
     </div>
   </div>
-  <div class="row generations-grid animate__animated animate__fadeIn animate__faster">
-    <div class="col-md-4" *ngFor="let generation of listGenerations">
+  <div class="row generations-grid">
+    <div class="col-md-4" matTooltip="Click for more details" matTooltipPosition="above" *ngFor="let generation of listGenerations">
       <div class="card-generation">
         <span>{{generation.name | uppercase}}</span>
       </div>
