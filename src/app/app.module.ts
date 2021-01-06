@@ -17,13 +17,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { ListGenerationsComponent } from './pages/list-generations/list-generations.component';
 import { GenerationDetailsComponent } from './pages/generation-details/generation-details.component';
+import { PokemonGenerationListComponent } from './components/pokemon-generation-list/pokemon-generation-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ListGenerationsComponent,
-    GenerationDetailsComponent
+    GenerationDetailsComponent,
+    PokemonGenerationListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,53 @@
+@import "./../../../assets/scss/variables";
+
+.container {
+  margin-top: 28px;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+}
+
+.info {
+  margin-bottom: 30px;
+  padding-top: 12px;
+  border-radius: 8px;
+  padding-bottom: 30px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.pokemons-grid {
+  margin-top: 30px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .card-pokemon {
+    border-radius: 8px;
+    padding: 20px 15px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid $light-color;
+    height: 80px;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 10px 30px rgba(56, 50, 152, 0.1);
+    }
+
+    span {
+      display: block;
+      color: $light-color;
+
+      &:last-of-type {
+        margin-top: 10px;
+      }
+    }
+  }
+}

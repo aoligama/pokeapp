@@ -18,6 +18,8 @@ export class GenerationDetailsComponent implements OnInit {
   listMoves: any = [];
   listMovesKeep: any = [];
   showAllMoves: boolean = false;
+  quantPokemon: number = 0;
+  showSpecies: boolean = false;
 
   constructor(
     public title: Title,
@@ -27,7 +29,7 @@ export class GenerationDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.title.setTitle('Generations | Pokéapp');
+    this.title.setTitle('Generation Details | Pokéapp');
 
     this.route.params.subscribe(params => {
       if (params['id']) {
@@ -46,6 +48,7 @@ export class GenerationDetailsComponent implements OnInit {
       this.listTypes = res.types;
       this.listVersions = res.version_groups;
       this.listMovesKeep = res.moves;
+      this.quantPokemon = res.pokemon_species.length;
 
       res.moves.length <= 10 ? this.listMoves = res.moves.length : this.buildListMoves(res.moves)
 
@@ -69,6 +72,14 @@ export class GenerationDetailsComponent implements OnInit {
       this.buildListMoves(this.listMoves)
     } else {
       this.showAllMoves = true;
+    }
+  }
+
+  toggleSpecies(){
+    if(this.showSpecies) {
+      this.showSpecies = false;
+    } else {
+      this.showSpecies = true;
     }
   }
 }

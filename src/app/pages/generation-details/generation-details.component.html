@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-md-12 item">
         <img class="image" src="../../../assets/images/new.png"/>
-        <span>Names:</span>
+        <span class="text-detail">Names:</span>
         <br />
         <mat-chip-list aria-label="Names of generation" class="chips">
           <mat-chip *ngFor="let name of listNames">{{name.name}}</mat-chip>
@@ -29,14 +29,14 @@
     <div class="row">
       <div class="col-md-12 item">
         <img class="image" src="../../../assets/images/location.png"/>
-        <span>Main region: {{ generationDetail.main_region.name }}</span>
+        <span class="text-detail">Main region: {{ generationDetail.main_region.name }}</span>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12 item" *ngIf="listTypes.length > 0">
         <img class="image" src="../../../assets/images/pikachu.png"/>
-        <span>Types of Pokémons:</span>
+        <span class="text-detail">Types of Pokémons:</span>
         <br />
         <mat-chip-list aria-label="Types of pokémon" class="chips">
           <mat-chip *ngFor="let type of listTypes">{{type.name}}</mat-chip>
@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-md-12 item" *ngIf="listVersions.length > 0">
         <img class="image" src="../../../assets/images/camera.png"/>
-        <span>Versions:</span>
+        <span class="text-detail">Versions:</span>
         <br />
         <mat-chip-list aria-label="Versions" class="chips">
           <mat-chip *ngFor="let version of listVersions">{{version.name}}</mat-chip>
@@ -58,7 +58,7 @@
     <div class="row">
       <div class="col-md-12 item" *ngIf="listMoves.length > 0">
         <img class="image" src="../../../assets/images/fist.png"/>
-        <span>Moves:</span>
+        <span class="text-detail">Moves:</span>
         <br />
         <mat-chip-list aria-label="Moves" class="chips">
           <mat-chip *ngFor="let move of listMoves">{{move.name}}</mat-chip>
@@ -69,6 +69,19 @@
         </mat-chip-list>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/bullbasaur.png"/>
+        <span class="text-detail">Pokémons: {{ quantPokemon }}</span> &nbsp;
+        <mat-chip color="primary" selected class="show-more" (click)="toggleSpecies()">
+          <span *ngIf="showSpecies">Hide species</span>
+          <span *ngIf="!showSpecies">Show all species</span>
+        </mat-chip>
+      </div>
+    </div>
+
+    <app-pokemon-generation-list *ngIf="showSpecies" [pokemons]="generationDetail.pokemon_species"></app-pokemon-generation-list>
   </div>
 </div>
 
