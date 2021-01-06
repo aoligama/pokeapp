@@ -10,9 +10,17 @@ export class PokemonGenerationListComponent implements OnInit {
   @Input()
     pokemons: any;
 
+  quantPokemons: number = 0;
+  page: number = 1;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.quantPokemons = this.pokemons.length;
+  }
+
+  choosePage(pageSelected) {
+    this.page = pageSelected;
   }
 
 }

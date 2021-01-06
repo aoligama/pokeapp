@@ -1,9 +1,27 @@
 <div class="container">
   <div class="row pokemons-grid">
-    <div class="col-md-2" matTooltip="Click for more details" matTooltipPosition="above" *ngFor="let pokemon of pokemons">
+    <div class="col-md-2" matTooltip="Click for more details" matTooltipPosition="above"
+      *ngFor="let pokemon of pokemons  | paginate: { itemsPerPage: 18, currentPage: page, totalItems: quantPokemons, id: 'pokemons' }" >
       <div class="card-pokemon">
         <span>{{pokemon.name}}</span>
       </div>
     </div>
+    <div class="pagination">
+      <div class="footer-list">
+        <div class="row">
+          <div class="col-md-12">
+            <pagination-controls id="pokemons" class="pokemon-pagination animated fadeIn" maxSize="12"
+              directionLinks="true" responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
+              (pageChange)="choosePage($event)">
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<style>
+  .pokemon-pagination /deep/ .ngx-pagination .current {
+    background: #3f51b5 !important;
+  }
+</style>

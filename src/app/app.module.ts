@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -35,6 +36,7 @@ import { PokemonGenerationListComponent } from './components/pokemon-generation-
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    NgxPaginationModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
