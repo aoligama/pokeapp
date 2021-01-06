@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { PokeappService } from 'src/app/services/pokeapp.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-generation-details',
@@ -24,7 +24,6 @@ export class GenerationDetailsComponent implements OnInit {
   constructor(
     public title: Title,
     private pokeService: PokeappService,
-    private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -42,7 +41,6 @@ export class GenerationDetailsComponent implements OnInit {
     this.isLoading = true;
     this.pokeService.getGenerationDetails(id)
     .subscribe(res => {
-      console.log(res)
       this.generationDetail = res;
       this.listNames = res.names;
       this.listTypes = res.types;

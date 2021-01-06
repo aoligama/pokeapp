@@ -21,4 +21,8 @@ export class PokeappService {
   getGenerationDetails(generationId: number) {
     return this.http.get(`${this.apiURL}/generation/${generationId}`).pipe(map((res: any) => res));
   }
+
+  getPokemonDetails(pokemonId: number) {
+    return this.http.get(`${this.apiURL}/pokemon-species/${pokemonId}`).pipe(map((res: any) => res));
+  }
 }

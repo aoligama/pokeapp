@@ -1,0 +1,56 @@
+@import "./../../../assets/scss/variables";
+
+h4 {
+  font-size: 20px;
+  color: $font-color;
+}
+
+.back {
+  cursor: pointer;
+  padding-left: 55px;
+  .icon-back {
+    color: $font-color;
+
+    &:hover {
+      color: $danger-color;
+    }
+  }
+}
+
+.container {
+  margin-top: 28px;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+  .info {
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px 30px;
+
+    .image {
+      width: 18px;
+      margin-right: 5px;
+    }
+
+    .item {
+      margin-bottom: 30px;
+    }
+
+    .show-more {
+      cursor: pointer;
+    }
+
+    .text-detail {
+      font-size: 16px;
+    }
+  }
+}
+
+.loader {
+  margin-top: 30px;
+  margin-left: 45%;
+}

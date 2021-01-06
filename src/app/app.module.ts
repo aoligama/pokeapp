@@ -19,6 +19,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ListGenerationsComponent } from './pages/list-generations/list-generations.component';
 import { GenerationDetailsComponent } from './pages/generation-details/generation-details.component';
 import { PokemonGenerationListComponent } from './components/pokemon-generation-list/pokemon-generation-list.component';
+import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PokemonGenerationListComponent } from './components/pokemon-generation-
     NavbarComponent,
     ListGenerationsComponent,
     GenerationDetailsComponent,
-    PokemonGenerationListComponent
+    PokemonGenerationListComponent,
+    PokemonDetailsComponent
   ],
   imports: [
     BrowserModule,

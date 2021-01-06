@@ -1,0 +1,69 @@
+<div class="row loader" *ngIf="isLoading">
+  <div class="col-md-12">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<div class="container" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-md-11">
+      <h4>{{ pokemonDetail.name| uppercase }}</h4>
+    </div>
+    <div class="col-md-1 back">
+      <a (click)="back()">
+        <span class="material-icons icon-back">reply</span>
+      </a>
+    </div>
+  </div>
+  <div class="info">
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/new.png"/>
+        <span class="text-detail">Names:</span>
+        <br />
+        <mat-chip-list aria-label="Names of pokémon" class="chips">
+          <mat-chip *ngFor="let name of listNames">{{name.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/avatar.png"/>
+        <span class="text-detail">Base happiness: {{ pokemonDetail.base_happiness }}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/pokeball.png"/>
+        <span class="text-detail">Capture rate: {{ pokemonDetail.capture_rate }}%</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/egg.png"/>
+        <span class="text-detail">Egg groups:</span>
+        <br />
+        <mat-chip-list aria-label="Types of eggs" class="chips">
+          <mat-chip *ngFor="let egg of listEggs">{{egg.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/growth.png"/>
+        <span class="text-detail">Growth rate: {{ pokemonDetail.growth_rate.name }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .chips /deep/ .mat-chip-list-wrapper {
+    margin-top: 10px;
+    margin-left: 15px;
+  }
+</style>

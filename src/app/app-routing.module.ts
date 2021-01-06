@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // pages
 import { ListGenerationsComponent } from 'src/app/pages/list-generations/list-generations.component'
 import { GenerationDetailsComponent } from 'src/app/pages/generation-details/generation-details.component'
+import { PokemonDetailsComponent } from 'src/app/pages/pokemon-details/pokemon-details.component'
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'generations/details/:id', component: GenerationDetailsComponent
+  },
+  {
+    path: 'generations/details/pokemon-specie/:id/:idGeneration', component: PokemonDetailsComponent
   }
 ];
 

@@ -2,7 +2,7 @@
   <div class="row pokemons-grid">
     <div class="col-md-2" matTooltip="Click for more details" matTooltipPosition="above"
       *ngFor="let pokemon of pokemons  | paginate: { itemsPerPage: 18, currentPage: page, totalItems: quantPokemons, id: 'pokemons' }" >
-      <div class="card-pokemon">
+      <div class="card-pokemon" (click)="goToDetailsPokemon(pokemon.url)">
         <span>{{pokemon.name}}</span>
       </div>
     </div>
