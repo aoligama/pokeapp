@@ -4,10 +4,15 @@
       <h5>Generations</h5>
     </div>
   </div>
-  <div class="row generations-grid">
+  <div class="row loader" *ngIf="isLoading">
+    <div class="col-md-12">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  <div class="row generations-grid" *ngIf="!isLoading">
     <div class="col-md-4" matTooltip="Click for more details" matTooltipPosition="above" *ngFor="let generation of listGenerations">
-      <div class="card-generation">
-        <span>{{generation.name | uppercase}}</span>
+      <div class="card-generation" (click)="goToDetails(generation.url)">
+        <span>{{generation.name.replace('-', ' ') | uppercase}}</span>
       </div>
     </div>
   </div>

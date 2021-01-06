@@ -18,7 +18,7 @@ export class PokeappService {
     return this.http.get(`${this.apiURL}/generation`).pipe(map((res: any) => res));
   }
 
-  getGenerationDetails(url: string) {
-    return this.http.get(`${url}`).pipe(map((res: any) => res));
+  getGenerationDetails(generationId: number) {
+    return this.http.get(`${this.apiURL}/generation/${generationId}`).pipe(map((res: any) => res));
   }
 }

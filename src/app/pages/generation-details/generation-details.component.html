@@ -1,0 +1,80 @@
+<div class="row loader" *ngIf="isLoading">
+  <div class="col-md-12">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<div class="container" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-md-11">
+      <h4>{{ generationDetail.name.replace('-', ' ') | uppercase }}</h4>
+    </div>
+    <div class="col-md-1 back">
+      <a routerLink="/generations">
+        <span class="material-icons icon-back">reply</span>
+      </a>
+    </div>
+  </div>
+  <div class="info">
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/new.png"/>
+        <span>Names:</span>
+        <br />
+        <mat-chip-list aria-label="Names of generation" class="chips">
+          <mat-chip *ngFor="let name of listNames">{{name.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item">
+        <img class="image" src="../../../assets/images/location.png"/>
+        <span>Main region: {{ generationDetail.main_region.name }}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item" *ngIf="listTypes.length > 0">
+        <img class="image" src="../../../assets/images/pikachu.png"/>
+        <span>Types of Pokémons:</span>
+        <br />
+        <mat-chip-list aria-label="Types of pokémon" class="chips">
+          <mat-chip *ngFor="let type of listTypes">{{type.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item" *ngIf="listVersions.length > 0">
+        <img class="image" src="../../../assets/images/camera.png"/>
+        <span>Versions:</span>
+        <br />
+        <mat-chip-list aria-label="Versions" class="chips">
+          <mat-chip *ngFor="let version of listVersions">{{version.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 item" *ngIf="listMoves.length > 0">
+        <img class="image" src="../../../assets/images/fist.png"/>
+        <span>Moves:</span>
+        <br />
+        <mat-chip-list aria-label="Moves" class="chips">
+          <mat-chip *ngFor="let move of listMoves">{{move.name}}</mat-chip>
+          <mat-chip color="primary" selected (click)="toggleMoves()" class="show-more">
+            <span *ngIf="showAllMoves">Hide moves</span>
+            <span *ngIf="!showAllMoves">Show all moves</span>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .chips /deep/ .mat-chip-list-wrapper {
+    margin-top: 10px;
+    margin-left: 15px;
+  }
+</style>

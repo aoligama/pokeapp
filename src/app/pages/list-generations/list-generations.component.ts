@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { PokeappService } from 'src/app/services/pokeapp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-generations',
@@ -10,10 +11,12 @@ import { PokeappService } from 'src/app/services/pokeapp.service';
 export class ListGenerationsComponent implements OnInit {
 
   listGenerations: any;
+  isLoading: boolean;
 
   constructor(
     public title: Title,
     private pokeService: PokeappService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -22,10 +25,16 @@ export class ListGenerationsComponent implements OnInit {
   }
 
   loadGenerations() {
+    this.isLoading = true
     this.pokeService.getGenerations()
     .subscribe(res => {
-      this.listGenerations = res.results
+      this.listGenerations = res.results;
+      this.isLoading = false;
     })
   }
 
+  goToDetails(url: string) {
+    let generationId = parseInt(url.split('generation/')[1].replace('/', ''));
+    this.router.navigate([`/generations/details/${generationId}`]);
+  }
 }

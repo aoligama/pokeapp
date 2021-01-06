@@ -13,13 +13,17 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 import { ListGenerationsComponent } from './pages/list-generations/list-generations.component';
+import { GenerationDetailsComponent } from './pages/generation-details/generation-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ListGenerationsComponent
+    ListGenerationsComponent,
+    GenerationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { ListGenerationsComponent } from './pages/list-generations/list-generati
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

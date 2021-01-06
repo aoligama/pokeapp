@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // pages
 import { ListGenerationsComponent } from 'src/app/pages/list-generations/list-generations.component'
+import { GenerationDetailsComponent } from 'src/app/pages/generation-details/generation-details.component'
 
 const routes: Routes = [
   {
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: 'generations', component: ListGenerationsComponent
+  },
+  {
+    path: 'generations/details/:id', component: GenerationDetailsComponent
   }
 ];
 
