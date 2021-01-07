@@ -12,14 +12,14 @@ export class GenerationDetailsComponent implements OnInit {
 
   isLoading: boolean;
   generationDetail: any;
-  listNames: any = [];
-  listTypes: any = [];
-  listVersions: any = [];
-  listMoves: any = [];
-  listMovesKeep: any = [];
-  showAllMoves: boolean = false;
-  quantPokemon: number = 0;
-  showSpecies: boolean = false;
+  listNames: any;
+  listTypes: any;
+  listVersions: any;
+  listMoves: any;
+  listMovesKeep: any;
+  showAllMoves: boolean;
+  quantPokemon: number;
+  showSpecies: boolean;
 
   constructor(
     public title: Title,
@@ -31,13 +31,23 @@ export class GenerationDetailsComponent implements OnInit {
     this.title.setTitle('Generation Details | Pokéapp');
 
     this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.loadGenerationDetails((params['id']));
+      const key = 'id';
+      if (params[key]) {
+        this.loadGenerationDetails((params[key]));
       }
     });
+
+    this.listNames = [];
+    this.listTypes = [];
+    this.listVersions = [];
+    this.listMoves = [];
+    this.listMovesKeep = [];
+    this.showAllMoves = false;
+    this.quantPokemon = 0;
+    this.showSpecies = false;
   }
 
-  loadGenerationDetails(id) {
+  loadGenerationDetails(id): void {
     this.isLoading = true;
     this.pokeService.getGenerationDetails(id)
     .subscribe(res => {
@@ -48,33 +58,33 @@ export class GenerationDetailsComponent implements OnInit {
       this.listMovesKeep = res.moves;
       this.quantPokemon = res.pokemon_species.length;
 
-      res.moves.length <= 10 ? this.listMoves = res.moves.length : this.buildListMoves(res.moves)
+      res.moves.length <= 10 ? this.listMoves = res.moves.length : this.buildListMoves(res.moves);
 
       this.isLoading = false;
-    })
+    });
   }
 
-  buildListMoves(moves: any){
+  buildListMoves(moves: any): void{
     this.listMoves = [];
-    for(let move of moves){
-      if(this.listMoves.length < 10){
+    for ( const move of moves ) {
+      if (this.listMoves.length < 10){
         this.listMoves.push(move);
       }
     }
   }
 
-  toggleMoves(){
+  toggleMoves(): void{
     this.listMoves = this.listMovesKeep;
-    if(this.showAllMoves) {
+    if (this.showAllMoves) {
       this.showAllMoves = false;
-      this.buildListMoves(this.listMoves)
+      this.buildListMoves(this.listMoves);
     } else {
       this.showAllMoves = true;
     }
   }
 
-  toggleSpecies(){
-    if(this.showSpecies) {
+  toggleSpecies(): void{
+    if (this.showSpecies) {
       this.showSpecies = false;
     } else {
       this.showSpecies = true;

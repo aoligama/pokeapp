@@ -24,17 +24,17 @@ export class ListGenerationsComponent implements OnInit {
     this.loadGenerations();
   }
 
-  loadGenerations() {
-    this.isLoading = true
+  loadGenerations(): void {
+    this.isLoading = true;
     this.pokeService.getGenerations()
     .subscribe(res => {
       this.listGenerations = res.results;
       this.isLoading = false;
-    })
+    });
   }
 
-  goToDetails(url: string) {
-    let generationId = parseInt(url.split('generation/')[1].replace('/', ''));
+  goToDetails(url: string): void {
+    const generationId = parseInt(url.split('generation/')[1].replace('/', ''), 10);
     this.router.navigate([`/generations/details/${generationId}`]);
   }
 }

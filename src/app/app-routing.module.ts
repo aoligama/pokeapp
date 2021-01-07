@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // pages
-import { ListGenerationsComponent } from 'src/app/pages/list-generations/list-generations.component'
-import { GenerationDetailsComponent } from 'src/app/pages/generation-details/generation-details.component'
-import { PokemonDetailsComponent } from 'src/app/pages/pokemon-details/pokemon-details.component'
+import { ListGenerationsComponent } from 'src/app/pages/list-generations/list-generations.component';
+import { GenerationDetailsComponent } from 'src/app/pages/generation-details/generation-details.component';
+import { PokemonDetailsComponent } from 'src/app/pages/pokemon-details/pokemon-details.component';
 
 const routes: Routes = [
   {

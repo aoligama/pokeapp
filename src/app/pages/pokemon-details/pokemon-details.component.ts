@@ -26,36 +26,37 @@ export class PokemonDetailsComponent implements OnInit {
     this.title.setTitle('Pokémon Details | Pokéapp');
 
     this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.loadPokemonDetails((params['id']));
+      const key = 'id';
+      if (params[key]) {
+        this.loadPokemonDetails((params[key]));
       }
     });
   }
 
-  loadPokemonDetails(pokemonId) {
+  loadPokemonDetails(pokemonId): void {
     this.isLoading = true;
     this.pokeService.getPokemonDetails(pokemonId)
     .subscribe(res => {
-      console.log(res)
       this.pokemonDetail = res;
       this.listNames = res.names;
       this.listEggs = res.egg_groups;
       this.isLoading = false;
-    })
+    });
   }
 
-  back(){
-    let entrys = [];
+  back(): void{
+    const entrys = [];
     this.route.url.subscribe(url => {
-      for (let entry of url) {
-        entrys.push(entry.path)
+      for (const entry of url) {
+        entrys.push(entry.path);
       }
     });
 
     if (entrys.includes('details')) {
       this.route.params.subscribe(params => {
-        if (params['idGeneration']) {
-          this.router.navigate([`/generations/details/${params['idGeneration']}`]);
+        const key = 'idGeneration';
+        if (params[key]) {
+          this.router.navigate([`/generations/details/${params[key]}`]);
         }
       });
     }

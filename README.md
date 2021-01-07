@@ -10,6 +10,6 @@ Execute `ng serve` no terminal e navegue para `http://localhost:4200/`.
 
 Execute `ng build` no terminal para gerar o build do projeto. 
 
-## Testes unitários
+## Aplicar linter
 
-Execute `ng test` para executar testes unitários via [Karma](https://karma-runner.github.io).
+Execute `ng lint` para executar o linter.

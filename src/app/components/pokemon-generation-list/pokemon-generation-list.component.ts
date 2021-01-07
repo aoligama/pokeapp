@@ -11,9 +11,9 @@ export class PokemonGenerationListComponent implements OnInit {
   @Input()
     pokemons: any;
 
-  quantPokemons: number = 0;
-  page: number = 1;
-  generationId: number = 0;
+  quantPokemons: number;
+  page: number;
+  generationId: number;
 
   constructor(
     private router: Router,
@@ -22,20 +22,22 @@ export class PokemonGenerationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.quantPokemons = this.pokemons.length;
+    this.page = 1;
 
     this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.generationId = params['id'];
+      const key = 'id';
+      if (params[key]) {
+        this.generationId = params[key];
       }
     });
   }
 
-  choosePage(pageSelected) {
+  choosePage(pageSelected: number): void {
     this.page = pageSelected;
   }
 
-  goToDetailsPokemon(url: string) {
-    let pokemonId = parseInt(url.split('pokemon-species/')[1].replace('/', ''));
+  goToDetailsPokemon(url: string): void {
+    const pokemonId = parseInt(url.split('pokemon-species/')[1].replace('/', ''), 10);
     this.router.navigate([`/generations/details/pokemon-specie/${pokemonId}/${this.generationId}`]);
   }
 

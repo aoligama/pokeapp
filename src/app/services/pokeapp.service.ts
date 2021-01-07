@@ -14,15 +14,15 @@ export class PokeappService {
 
   apiURL: string = environment.apiURL;
 
-  getGenerations() {
+  getGenerations(): any {
     return this.http.get(`${this.apiURL}/generation`).pipe(map((res: any) => res));
   }
 
-  getGenerationDetails(generationId: number) {
+  getGenerationDetails(generationId: number): any {
     return this.http.get(`${this.apiURL}/generation/${generationId}`).pipe(map((res: any) => res));
   }
 
-  getPokemonDetails(pokemonId: number) {
+  getPokemonDetails(pokemonId: number): any {
     return this.http.get(`${this.apiURL}/pokemon-species/${pokemonId}`).pipe(map((res: any) => res));
   }
 }
