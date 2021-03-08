@@ -1,5 +1,7 @@
 # Challenge Deliverymuch - Pokéapp
 
+Pokéapp made with <3 and Angular
+
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 10.0.5.
 
 ## Utilizar localmente
